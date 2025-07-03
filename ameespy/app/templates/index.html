@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mt-3 left">
+                <div class="site-heading">
+                    <h3 class="site-heading my-4 mt-3 text-black">Bienvenue</h3>
+                    <p class="text-dark">
+                AMEESPY, c'est bien plus qu'une amicale. C'est une famille, un réseau, une source d'inspiration.
+                Rejoignez-nous pour construire un avenir où chacun trouve sa place.
+                Parce que chaque rêve mérite d'être réalisé, AMEESPY est là pour vous accompagner à chaque étape de votre parcours.
+                Vous avez une idée, une histoire ou un talent à partager ? Faites entendre votre voix sur le blog AMEESPY.
+                Ensemble, faisons briller notre communauté !
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-3 left">
+            {% for post in post_list %}
+            <div class="card mb-4">
+                
+                <div class="card-body">
+                       <!-- Affichage de l'image -->
+                       {% if post.image %}
+                       <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid">
+                       {% endif %}
+                    <h2 class="cardtitle">{{ post.title }}</h2>
+                    <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on }}</p>
+                    <p class="card-text">{{ post.content|slice:":200"}}</p>
+                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+                </div>
+            </div>
+            {% empty %}
+            <p>Aucun article pour le moment.</p>
+            {% endfor %}
+        </div>
+        {% block sidebar%}
+        {% include 'sidebar.html'%}
+        {% endblock sidebar%}
+    </div>
+</div>
+
+
+{% endblock%}

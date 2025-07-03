@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMEESPY</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'apropos/css/style.css' %}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light shadow-sm" id="navbar">
+        <div class="container-fluid" id="">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img src="{% static 'home/images/logo.jpg' %}" alt="logo" class="d-inline-block align-text-top rounded-circle" width="50" height="50">
+                AMEESPY
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link hover-shadow " href="{% url 'apropos' %}">A propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-shadow" href="{% url 'liste_documents' %}">Ressources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-shadow" href="{% url 'home' %}">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-shadow" href="{% url 'event_list' %}">Evenements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-shadow" href="{% url 'temoin' %}">Temoignage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-shadow" href="{% url 'adherer' %}">Adhésion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover-shadow " aria-current="page" href="https://py-a.africamotion.net">Forum</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5 pt-5" id="A propos">
+        <div class="d-flex vh-50">
+          <div class="card shadow mx-auto" style="width: 50em; margin: 50px;">
+            <div class="card-body text-center">
+              <h5 class="card-title shadow "id="titre">À propos de nous</h5>
+              <p class="card-text">Conformément à l'article 10 alinéa 1 de la charte africaine des droits de l'homme qui autorisent la création des associations,<br>
+                  vu que ce texte a été ratifié par le Togo, naquis <span class="fw-bold">Etudiants de Pya</span> et par la suite <span class="fw-bold">AMEESPY</span>.<br>
+              AMEESPY est une association qui regroupe les élèves étudiants et stagiaires du canton de Pya.<br>
+              Elle a été créée en remplacement de l'amicale mère <span class="fw-bold">Etudiants de Pya</span> qui a été créée depuis 1980.<br>
+              L'AMEESPY est une section de l'AMELKO <small class="fst-italic">Amicale de Elèves Etudiants et Stagiaires de la Kozah</small></p>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex vh-50">
+          <div class="card shadow mx-auto" style="width: 50em; margin: 50px;">
+            <div class="card-body text-center">
+              <h5 class="card-title shadow" id="titre">Qui peut être membre de l'AMEESPY ?</h5>
+              <p class="card-text">Est membre de l'amicale tout élève, étudiant ou stagiaire de Pya régulièrement inscrit dans un établissement scolaire ou de formation professionnelle sur toute l'étendue du territoire national ou à l'étranger.<br>
+                  Est membre sympathisant toute personne apportant son concours matériel, moral et financier pour la réalisation des objectifs de l'amicale.<br>
+                  Est membre d'honneur toute personne physique ou morale ayant rendu des services signalés à l'amicale et qui a été admis par le bureau exécutif.</p>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex vh-50">
+          <div class="card shadow mx-auto" style="width: 50em; margin: 50px;">
+            <div class="card-body text-center">
+              <h5 class="card-title shadow" id="titre">Les objectifs de l'amicale</h5>
+              <p class="card-text"><ol class="list-group list-group-numbered ">
+                  <li class="list-item bi bi-check-circle">Regrouper et unir sur les mêmes bases tous les élèves, étudiants et stagiaires du canton de Pya</li>
+                  <li class="list-item bi bi-check-circle">Développer entre ses membres l'esprit de solidarité et d'entraide</li>
+                  <li class="list-item bi bi-check-circle">Coordonner les efforts de ses membres pour entretenir des relations culturelles et sociales avec les amicales sœurs poursuivant les mêmes buts</li>
+                  <li class="list-item bi bi-check-circle">Réfléchir et trouver des solutions aux problèmes sociaux, économiques et culturels</li>
+                  <li class="list-item bi bi-check-circle">Défendre et sauvegarder les intérêts matériels et moraux dans la mesure des moyens et concurremment avec l'AMELKO selon les cas et les circonstances</li>
+                  <li class="list-item bi bi-check-circle">Promouvoir le vivre ensemble, la santé publique, la citoyenneté, la justice et la démocratie</li>
+                  <li class="list-item bi bi-check-circle">Lutter contre tous maux pouvant nuire au développement économique, culturel et social du grand canton de Pya</li>
+              </ol></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex vh-50">
+          <div class="card shadow mx-auto" style="width: 50em; margin: 50px;">
+            <div class="card-body text-center">
+              <h5 class="card-title shadow" id="titre">Avantages</h5>
+              <p class="card-text"><ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                      <strong>Participation aux voyages et aux sorties touristiques de l'amicale</strong>
+                      <p>L'amicale organise dans le cadre culturel des sorties touristiques et des voyages à l'issue d'une activité en guise de récompense.</p>
+                  </li>
+                  <li class="list-group-item">
+                      <strong>Participation aux événements et aux ateliers de l'amicale</strong>
+                      <p>L'amicale invite des experts en entreprenariat, des conseillers de l'éducation, des experts en communication, et des personnels de santé pour des ateliers de formation et de sensibilisation sur des thématiques diverses.</p>
+                  </li>
+                  <li class="list-group-item">
+                      <strong>Vivre ensemble et vie associative épanouie</strong>
+                      <p>L'amicale est un cadre de vie associative qui permet à ses membres de vivre ensemble et de s'entraider dans les moments difficiles. La discrimination sous toutes ses formes est bannie de l'amicale.</p>
+                  </li>
+                  <li class="list-group-item">
+                      <strong>Réseautage avec d'autres étudiants, élèves ou stagiaires</strong>
+                      <p>L'amicale est un cadre de rencontre et d'échange entre ses membres et les autres membres des amicales sœurs.</p>
+                  </li>
+                  <li class="list-group-item">
+                      <strong>Un support et conseils personnalisés</strong>
+                      <p>L'amicale offre un support et des conseils personnalisés à ses membres pour leur orientation scolaire et professionnelle.</p>
+                  </li>
+              </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+        <footer class="bg-primary text-white py-3">
+          <div class="container d-flex justify-content-between align-items-center flex-wrap">
+              <small>© 2025 AMEESPY | Tous droits réservés</small>
+              <div class="d-flex gap-3">
+                  <a href="mailto:tonemail@example.com" class="text-light text-decoration-none"><i class="bi bi-envelope-fill"></i> Email</a>
+                  <a href="https://wa.me/00228365774222" class="text-light text-decoration-none"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+                  <a href="https://facebook.com/toncompte" class="text-light text-decoration-none"><i class="bi bi-facebook"></i> Facebook</a>
+                  <a href="https://x.com/toncompte" class="text-light text-decoration-none"><i class="bi bi-twitter-x"></i> X</a>
+              </div>
+          </div>
+      </footer>
+        <!-- Ajoute Bootstrap JS (CDN) juste avant la fermeture de body -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    </body>
+</html>

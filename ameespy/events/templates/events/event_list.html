@@ -1,0 +1,218 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Événements</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'events/css/style.css' %}">
+    
+    
+    <style>
+        body {
+            background-color: #f8f9fa; 
+        }
+        #titre {
+            background-color: blue;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .container {
+            max-width: 90%;
+            margin-top: 80px;
+        }
+        .card {
+            width: 100%;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+        }
+        .event-image {
+            max-height: 200px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Barre de navigation -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <img src="{% static 'home/images/logo.jpg' %}" alt="logo" class="d-inline-block align-text-top rounded-circle" width="50" height="50">
+            AMEESPY
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'apropos' %}">À propos</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'liste_documents' %}">Ressources</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Blog</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{% url 'event_list' %}">Événements</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'temoin' %}">Témoignages</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'adherer' %}">Adhésion</a></li>
+
+                <li class="nav-item">
+                    <a class="nav-link hover-shadow" href="https://py-a.africamotion.net" target="_blank">Forum</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="card text-center">
+        <h2 class="mb-4" id="titre">📅 Événements à venir</h2>
+        <div class="row">
+            {% for event in events %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card shadow-sm">
+                    {% if event.image %}
+                        <img src="{{ event.image.url }}" class="event-image" alt="Affiche de l'événement">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ event.title }}</h5>
+                        <p class="card-text">{{ event.description }}</p>
+                        <p class="text-muted">📅 {{ event.date }}</p>
+                        {% if event.video %}
+                            <a href="{{ event.video }}" class="btn btn-primary btn-sm" target="_blank">
+                                🎥 Voir la vidéo
+                            </a>
+                        {% endif %}
+                        <p id="countdown-{{ event.id }}" class="text-danger fw-bold"></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<section id="Evenements" class="d-flex vh-50">
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Evenements et Activités</h2>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <img src="C:\Users\allaba\OneDrive\Images\lypya.jpg" class="card-img-top" alt="Photo">
+                    <div class="card-body">
+                        <h5 class="card-title">Apothéose des cours de vaccances 2024</h5>
+                        <p class="card-text">A l'issue de l'année académique 2023-2024 nous
+                            c'est à la cérémonie de cloture de ces cours de soutien quecette image aété prise.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <video class="card-img-top" controls>
+                        <source src="C:\Users\allaba\OneDrive\Images\lypya.jpg" type="video/mp4">
+                        Votre navigateur ne supporte pas les vidéos HTML5.
+                    </video>
+                    <div class="card-body">
+                        <h5 class="card-title">Apothéose cours de vaccances 2024</h5>
+                        <p class="card-text">Une vidéo qui motrent un moment de partage de gaité lors de la.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <img src="C:\Users\allaba\OneDrive\Images\cms.jpg" class="card-img-top" alt="Photo d'acti">
+                    <div class="card-body">
+                        <h5 class="card-title">Journée citoyenne</h5>
+                        <p class="card-text">Cette vu a été prise a la fin d'une activité de salubrité au CMS pya.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <video class="card-img-top" controls>
+                        <source src="C:\Users\allaba\OneDrive\Images\videorecap2024.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas les vidéos HTML5.
+                    </video>
+                    <div class="card-body">
+                        <h5 class="card-title">Recaptulatif des activités de vaccances 2024</h5>
+                        <p class="card-text">Un bref récaptula
+                            cette vidéo a été réalisé par <a href="wa/me/90412840">Sandrine ASSOTI</a>.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <img src="C:\Users\allaba\OneDrive\Images\photo de groupe.jpg" class="card-img-top" alt="Photo d'Activités">
+                    <div class="card-body">
+                        <h5 class="card-title">Les élèves du CP en enseignement</h5>
+                        <p class="card-text">Les élèves du CP lors d'un enseignement à l'E.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <img src="C:\Users\allaba\OneDrive\Images\photo de groupe.jpg" class="card-img-top" alt="Photo d'Activités">
+                    <div class="card-body">
+                        <h5 class="card-title">Les élèves du CP en enseignement</h5>
+                        <p class="card-text">Les élèves</p>
+                    </div>
+                </div>
+            </div>
+            
+    
+            
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="bg-primary text-white py-3">
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
+        <small>© 2025 AMEESPY | Tous droits réservés</small>
+        <div class="d-flex gap-3">
+            <a href="mailto:tonemail@example.com" class="text-light text-decoration-none"><i class="bi bi-envelope-fill"></i> Email</a>
+            <a href="https://wa.me/00228365774222" class="text-light text-decoration-none"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+            <a href="https://facebook.com/toncompte" class="text-light text-decoration-none"><i class="bi bi-facebook"></i> Facebook</a>
+            <a href="https://x.com/toncompte" class="text-light text-decoration-none"><i class="bi bi-twitter-x"></i> X</a>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    function updateCountdown(eventId, eventDate) {
+        let eventTime = new Date(eventDate).getTime();
+        let now = new Date().getTime();
+        let difference = eventTime - now;
+
+        let days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        let countdownElement = document.getElementById(`countdown-${eventId}`);
+        countdownElement.innerHTML = `⌛ Événement dans : ${days}j ${hours}h ${minutes}m ${seconds}s`;
+
+        if (difference < 0) {
+            countdownElement.innerHTML = "🎉 L'événement a commencé !";
+        }
+    }
+
+    {% for event in events %}
+        setInterval(() => {
+            updateCountdown("{{ event.id }}", "{{ event.date|date:'Y-m-d H:i:s' }}");
+        }, 1000);
+    {% endfor %}
+</script>
+<!-- Ajoute Bootstrap JS (CDN) juste avant la fermeture de body -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
