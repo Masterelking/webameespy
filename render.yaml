@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: ameespy-app
+    env: python
+    buildCommand: |
+      cd ameespy
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+    startCommand: cd ameespy && gunicorn ameespy.wsgi:application
+    envVars:
+      - key: SECRET_KEY
+        value: ton_secret_key
+      - key: DEBUG
+        value: False
+      - key: ALLOWED_HOSTS
+        value: ameespy.onrender.com
